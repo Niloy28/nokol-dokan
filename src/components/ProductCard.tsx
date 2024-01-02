@@ -10,28 +10,26 @@ type Props = {
 };
 
 const ProductCard = ({ product }: Props) => {
-  console.log(product.description);
-
   return (
     <Link
       href={`/products/${product.name}`}
-      className="card w-full bg-base-300 hover:shadow-xl transition-shadow m-4"
+      className="card w-full bg-base-300 transition-shadow hover:shadow-xl"
     >
       {product.imageUrl && (
         <figure>
           <Image
             width={800}
             height={400}
-            src={product.imageUrl!}
+            src={product.imageUrl}
             alt={product.name}
             className="h-48 object-cover"
           />
         </figure>
       )}
 
-      <div className="card-body m-4 p-2">
+      <div className="card-body m-4 justify-between p-2">
         <Markdown className="prose">{product.description as string}</Markdown>
-        <div className="flex flex-row justify-between items-center">
+        <div className="flex flex-row items-center justify-between">
           <PriceBadge price={product.price} />
           <div className="card-actions justify-end">
             <button className="btn btn-primary">Buy Now</button>
