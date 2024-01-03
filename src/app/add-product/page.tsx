@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 const AddProduct = () => {
-  async function addProduct(formData: FormData) {
+  const addProduct = async (formData: FormData) => {
     "use server";
 
     const name = formData.get("name")?.toString();
@@ -30,7 +30,7 @@ const AddProduct = () => {
     });
 
     redirect("/"); // Redirect to the home page
-  }
+  };
 
   return (
     <div className="mx-auto mt-12 w-full md:w-2/3">
