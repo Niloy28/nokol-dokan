@@ -12,7 +12,7 @@ type Props = {
 const ProductCard = ({ product }: Props) => {
   return (
     <Link
-      href={`/products/${product.name}`}
+      href={`/products/${product.id}`}
       className="card w-full bg-base-300 transition-shadow hover:shadow-xl"
     >
       {product.imageUrl && (
