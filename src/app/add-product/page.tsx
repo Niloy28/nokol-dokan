@@ -7,31 +7,31 @@ export const metadata: Metadata = {
   title: "Add Product",
 };
 
-const addProduct = async (formData: FormData) => {
-  "use server";
-
-  const name = formData.get("name")?.toString();
-  const description = formData.get("description")?.toString();
-  const price = parseInt(formData.get("price")?.toString() || "0");
-  const imageUrl = formData.get("image")?.toString();
-
-  if (!name || !description || !price) {
-    throw new Error("Invalid form data");
-  }
-
-  await prisma?.product.create({
-    data: {
-      name,
-      description,
-      price,
-      imageUrl: imageUrl ?? "",
-    },
-  });
-
-  redirect("/"); // Redirect to the home page
-};
-
 const AddProduct = () => {
+  const addProduct = async (formData: FormData) => {
+    "use server";
+
+    const name = formData.get("name")?.toString();
+    const description = formData.get("description")?.toString();
+    const price = parseInt(formData.get("price")?.toString() || "0");
+    const imageUrl = formData.get("image")?.toString();
+
+    if (!name || !description || !price) {
+      throw new Error("Invalid form data");
+    }
+
+    await prisma?.product.create({
+      data: {
+        name,
+        description,
+        price,
+        imageUrl: imageUrl ?? "",
+      },
+    });
+
+    redirect("/"); // Redirect to the home page
+  };
+
   return (
     <div className="mx-auto mt-12 w-full md:w-2/3">
       <h1 className="text-2xl font-bold">Add a New Product</h1>
