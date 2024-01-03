@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Add Product",
 };
 
-export const addProduct = async (formData: FormData) => {
+const addProduct = async (formData: FormData) => {
   "use server";
 
   const name = formData.get("name")?.toString();
@@ -33,11 +33,11 @@ export const addProduct = async (formData: FormData) => {
 
 const AddProduct = () => {
   return (
-    <div className="w-full md:w-2/3 mx-auto mt-12">
-      <h1 className="font-bold text-2xl">Add a New Product</h1>
+    <div className="mx-auto mt-12 w-full md:w-2/3">
+      <h1 className="text-2xl font-bold">Add a New Product</h1>
       <form action={addProduct}>
         <input
-          className="input input-bordered p-1 mb-2 w-full"
+          className="input input-bordered mb-2 w-full p-1"
           type="text"
           name="name"
           id="name"
@@ -45,7 +45,7 @@ const AddProduct = () => {
           placeholder="Product name"
         />
         <textarea
-          className="textarea textarea-bordered p-1 mb-2 w-full"
+          className="textarea textarea-bordered mb-2 w-full p-1"
           name="description"
           id="description"
           cols={30}
@@ -54,14 +54,14 @@ const AddProduct = () => {
           placeholder="Product description"
         ></textarea>
         <input
-          className="input input-bordered p-1 mb-2 w-full"
+          className="input input-bordered mb-2 w-full p-1"
           type="url"
           name="image"
           id="image"
           placeholder="Product image"
         />
         <input
-          className="input input-bordered p-1 mb-2 w-full"
+          className="input input-bordered mb-2 w-full p-1"
           type="number"
           name="price"
           id="price"

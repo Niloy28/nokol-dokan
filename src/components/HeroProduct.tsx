@@ -16,15 +16,13 @@ const HeroProduct = ({ product }: Props) => {
             height={500}
             alt={product.name}
             src={product.imageUrl}
-            className="w-full rounded-lg object-cover shadow-2xl"
+            className="rounded-lg"
           />
         )}
 
         <div>
           <h1 className="text-5xl font-bold">{product.name}</h1>
-          <p className="prose py-6">
-            <Markdown>{product.description}</Markdown>
-          </p>
+          <Markdown className="prose">{product.description}</Markdown>
           <button className="btn btn-primary">Details</button>
         </div>
       </div>
