@@ -14,7 +14,7 @@ type Props = {
 const getProduct = cache(async (id: string): Promise<Product | null> => {
   return await prisma.product.findUnique({
     where: {
-      id: parseInt(id),
+      id,
     },
   });
 });

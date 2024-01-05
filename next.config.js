@@ -8,6 +8,12 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "assets-global.website-files.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };
