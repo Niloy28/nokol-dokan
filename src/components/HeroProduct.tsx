@@ -1,5 +1,6 @@
 import { Product } from "@prisma/client";
 import Image from "next/image";
+import Link from "next/link";
 import Markdown from "react-markdown";
 
 type Props = {
@@ -23,7 +24,9 @@ const HeroProduct = ({ product }: Props) => {
         <div>
           <h1 className="text-5xl font-bold">{product.name}</h1>
           <Markdown className="prose">{product.description}</Markdown>
-          <button className="btn btn-primary">Details</button>
+          <button className="btn btn-primary">
+            <Link href={`/products/${product.id}`}>Details</Link>
+          </button>
         </div>
       </div>
     </div>
