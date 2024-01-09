@@ -4,11 +4,11 @@ import { useTransition } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import noImage from "@/../public/assets/no-image.jpg";
-import { CartItemWithproduct } from "@/lib/db/cart";
+import { CartItemWithProduct } from "@/lib/db/cart";
 import { getFormattedPrice } from "@/lib/formatter";
 
 type Props = {
-  cartItem: CartItemWithproduct;
+  cartItem: CartItemWithProduct;
   onQuantityChange: (productID: string, quantity: number) => Promise<void>;
 };
 

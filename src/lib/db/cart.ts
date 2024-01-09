@@ -8,7 +8,7 @@ export type CartWithProducts = Prisma.CartGetPayload<{
   include: { items: { include: { product: true } } };
 }>;
 
-export type CartItemWithproduct = Prisma.CartItemGetPayload<{
+export type CartItemWithProduct = Prisma.CartItemGetPayload<{
   include: { product: true };
 }>;
 
@@ -49,7 +49,7 @@ export const getCart = async (): Promise<ShoppingCart | null> => {
   };
 };
 
-export const createCart = async (): Promise<ShoppingCart | null> => {
+export const createCart = async (): Promise<ShoppingCart> => {
   const newCart = await prisma.cart.create({
     data: {},
   });
