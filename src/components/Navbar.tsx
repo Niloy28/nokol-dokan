@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 import { getCart } from "@/lib/db/cart";
 import ShoppingCartButton from "./ShoppingCartButton";
 import AccountButton from "./AccountButton";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth-options";
 
 const searchProducts = async (formData: FormData) => {
   "use server";
