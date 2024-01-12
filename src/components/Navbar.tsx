@@ -1,9 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getServerSession } from "next-auth";
 import logo from "@/../public/assets/nokol-dokan-high-resolution-logo-white-transparent.png";
 import { redirect } from "next/navigation";
 import { getCart } from "@/lib/db/cart";
 import ShoppingCartButton from "./ShoppingCartButton";
+import AccountButton from "./AccountButton";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 const searchProducts = async (formData: FormData) => {
   "use server";
@@ -17,6 +20,7 @@ const searchProducts = async (formData: FormData) => {
 };
 
 const Navbar = async () => {
+  const session = await getServerSession(authOptions);
   const cart = await getCart();
 
   return (
@@ -38,6 +42,7 @@ const Navbar = async () => {
             </div>
           </form>
           <ShoppingCartButton cart={cart} />
+          <AccountButton session={session} />
         </div>
       </nav>
     </header>
